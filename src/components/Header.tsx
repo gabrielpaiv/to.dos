@@ -1,23 +1,25 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import React from 'react'
+import { View, Text, StyleSheet, Image } from 'react-native'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
-import logoImg from '../assets/images/logo/logo.png';
+import logoImg from '../assets/images/logo/logo.png'
 
 interface HeaderProps {
-  tasksCounter: number;
+  tasksCounter: number
 }
 
 export function Header({ tasksCounter }: HeaderProps) {
-  // const tasksCounterText = TODO render 'tarefa' if tasksCounter equals 1, otherwise render 'tarefas'
-  
+  const tasksCounterText = tasksCounter !== 1 ? 'tarefas' : 'tarefa'
+
   return (
     <View style={styles.container}>
       <Image source={logoImg} />
-      
+
       <View style={styles.tasks}>
         <Text style={styles.tasksCounter}>Você tem </Text>
-        {/* <Text style={styles.tasksCounterBold}>{tasksCounter} {tasksCounterText}</Text> */}
+        <Text style={styles.tasksCounterBold}>
+          {tasksCounter} {tasksCounterText}
+        </Text>
       </View>
     </View>
   )
@@ -40,11 +42,11 @@ const styles = StyleSheet.create({
   tasksCounter: {
     fontSize: 15,
     color: '#FFF',
-    fontFamily: 'Inter-Regular',
+    fontFamily: 'Inter-Regular'
   },
   tasksCounterBold: {
     fontSize: 15,
     color: '#FFF',
-    fontFamily: 'Inter-Bold',
+    fontFamily: 'Inter-Bold'
   }
-});
+})
